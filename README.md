@@ -4,7 +4,7 @@
 
 Este é um minigame interativo baseado no famoso desafio do vidro da série **Round 6**, desenvolvido com JavaScript. O jogador precisa fazer boas escolhas para sobreviver às rodadas e vencer o jogo!
 
-🚀 **Acesse o projeto online:** [Clique aqui](https://gabrielcotrimmiron.github.io/chao-de-vidro-jogo/Images/background.jpeg)  
+🚀 **Acesse o projeto online:** [Clique aqui](https://gabrielcotrimmiron.github.io/chao-de-vidro-jogo/)  
 
 ---
 
