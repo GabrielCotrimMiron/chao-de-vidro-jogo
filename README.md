@@ -1,6 +1,6 @@
 # Chão de Vidro 🩸🔍
 
-![Prévia do Projeto](https://i.postimg.cc/GpCxYmvc/title.png)
+![Prévia do Projeto](Images/background.jpeg)
 
 Este é um minigame interativo baseado no famoso desafio do vidro da série **Round 6**, desenvolvido com JavaScript. O jogador precisa fazer boas escolhas para sobreviver às rodadas e vencer o jogo!
 
