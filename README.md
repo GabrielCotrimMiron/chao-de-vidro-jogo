@@ -39,3 +39,7 @@ Este é um minigame interativo baseado no famoso desafio do vidro da série **Ro
 ---
 
 💡 **Este projeto foi desenvolvido durante a Imersão Dev 9ª Edição da Alura, com adaptações e melhorias pessoais aplicadas na lógica e na interface.**
+
+---
+
+📧 **Contato:** gabrielcotrimmiron@gmail.com
