@@ -7,10 +7,13 @@ function jogar() {
   let viloesPossiveis = ["Madara", "Obito", "Orochimaru", "Pain", "Kakuzo", "Hidan", "Itachi", "Kaguya Otsutsuki", "Deidara", "Zetsu Negro"];
   let viloesMinusc = viloesPossiveis.map(nome => nome.toLowerCase()); 
 
-  function contemApenasLetras(texto) {
-    for (let i = 0; i < texto.length; i++) {
+  function contemApenasLetras(texto) 
+  {
+    for (let i = 0; i < texto.length; i++) 
+    {
       let caractere = texto[i].toLowerCase();
-      if (caractere < 'a' || caractere > 'z') {
+      if (caractere < 'a' || caractere > 'z') 
+      {
         return false;
       }
     }
