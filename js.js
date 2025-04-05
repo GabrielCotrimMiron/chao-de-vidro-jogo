@@ -1,50 +1,74 @@
-function jogar() 
-{
-  var rodada = 1;
-  const nomeusuario = prompt ("Digite seu nome, jogador")
-  
-  if (nomeusuario.includes("0") || nomeusuario.includes("1") || nomeusuario.includes("2") ||
-  nomeusuario.includes("3") || nomeusuario.includes("4") || nomeusuario.includes("5") ||
-  nomeusuario.includes("6") || nomeusuario.includes("7") || nomeusuario.includes("8") ||
-  nomeusuario.includes("9")) 
-  {
-  alert("Nome inválido! Não pode conter números.");
-  }
-   
-  else {
-    numeroaleatoriojogador = Math.floor(Math.random() * 456) + 1
-    
-    alert ("Seja bem-vindo " + nomeusuario + " - Jogador número " + numeroaleatoriojogador)
-    
+function jogar() {
+  let personagem = [];
+  let viloes = [];
+  let forcaPersonagem = 0;
+  let forcaViloes = 0;
 
-  while (rodada <= 3) 
-    {
-    
-    console.log("Rodada " + rodada);
-    escolhajogador = prompt("Nível " + rodada + " Escolha o vidro (1, 2 ou 3)? ");
-    pisoquebrado = Math.floor(Math.random() * 3) + 1;
+  let viloesPossiveis = ["Madara", "Obito", "Orochimaru", "Pain", "Kakuzo", "Hidan", "Itachi", "Kaguya Otsutsuki", "Deidara", "Zetsu Negro"];
+  let viloesMinusc = viloesPossiveis.map(nome => nome.toLowerCase()); 
 
-    if (escolhajogador > 3)
-    {
-      alert ("O guarda te empurrou da ponte por tentativa de trapaça... Tente novamente!")
-      break
+  function contemApenasLetras(texto) {
+    for (let i = 0; i < texto.length; i++) {
+      let caractere = texto[i].toLowerCase();
+      if (caractere < 'a' || caractere > 'z') {
+        return false;
+      }
     }
-    else if (escolhajogador == pisoquebrado) 
+    return true;
+  }
+
+  for (let i = 0; i < 3; i++) 
     {
-      alert("OPS! O vidro quebrou, você caiu... Boa sorte na próxima vez!");
-      break;
-    } 
-    else 
+    let escolha;
+    do 
     {
-      alert("UFA! Seu vidro se manteve inteiro. " + "O número do piso quebrado era: " + pisoquebrado);
+      escolha = prompt("Digite o nome do seu personagem " + (i + 1) + " (Universo Naruto):");
+
+      let escolhaMinuscula = escolha.toLowerCase();
+
+      if (!contemApenasLetras(escolha)) 
+      {
+        alert("Digite apenas letras, sem números, símbolos ou espaços.");
+      } 
+      else if (viloesMinusc.includes(escolhaMinuscula)) 
+      {
+        alert("Esse personagem é um vilão! Escolha outro.");
+      } 
+      else if (personagem.map(n => n.toLowerCase()).includes(escolhaMinuscula)) 
+      {
+        alert("Esse personagem já foi escolhido! Escolha outro.");
+      }
+
+    } while ( !contemApenasLetras(escolha) || viloesMinusc.includes(escolha.toLowerCase()) || personagem.map(n => n.toLowerCase()).includes(escolha.toLowerCase()));
+
+    personagem.push(escolha);
+    forcaPersonagem += Math.floor(Math.random() * 10) + 1;
+  }
+
+  alert("Time dos heróis: " + personagem.join(", "));
+
+  while (viloes.length < 3) 
+   {
+    let vilao = viloesPossiveis[Math.floor(Math.random() * viloesPossiveis.length)];
+    if (!viloes.includes(vilao)) 
+    {
+      viloes.push(vilao);
+      forcaViloes += Math.floor(Math.random() * 10) + 1;
     }
-    rodada = rodada + 1;
   }
 
-  if (rodada == 4)
+  alert("Time dos vilões: " + viloes.join(", "));
+
+  if (forcaPersonagem > forcaViloes) 
   {
-    alert ("Você concluiu essa fase do jogo " + "Meus parabéns " + nomeusuario + "!")
+    alert("Seu time venceu! Força: " + forcaPersonagem + ". A força dos vilões foi: " + forcaViloes);
+  } 
+  else if (forcaPersonagem < forcaViloes) 
+  {
+    alert("Os vilões venceram! Força: " + forcaViloes + ". A força dos heróis foi: " + forcaPersonagem);
+  } 
+  else 
+  {
+    alert("Empate! Ambos os times lutaram bravamente.");
   }
-
-}
 }
